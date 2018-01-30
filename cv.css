@@ -44,7 +44,9 @@ a{
 
 .topNavBar{
     padding: 20px 16px;
-
+    position: fixed;
+    top: 0;
+    left: 0;
 }
 
 .topNavBar nav ul{
@@ -75,4 +77,10 @@ a{
 
 .topNavBar nav ul li a:hover{
     border-bottom: 3px solid #E8676B;
+}
+
+.banner{
+    height: 515px;
+    background-image: url(./picture/rs-cover.jpg);
+    /* border: 1px solid red; */
 }
