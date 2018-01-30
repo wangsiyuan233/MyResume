@@ -1,1 +1,41 @@
+/**/
 
+
+body{
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.left{
+    float: left;
+}
+
+.right{
+    float: right;
+}
+
+.clear::after{
+    content: '';
+    display: block;
+    clear: both;
+}
+
+/*  以下是细分  */
+.topNavBar nav ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.topNavBar nav ul li{
+    float: left;
+    margin-left: 17px;
+    margin-right: 17px;
+
+}
+
+.topNavBar nav ul li a {
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.5);
+    text-decoration: none;
+    font-weight: bold;
+}
