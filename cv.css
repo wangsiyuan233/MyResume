@@ -3,7 +3,7 @@
 
 body{
     margin: 0;
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: #EFEFEF;
 }
 
 a{
@@ -47,6 +47,11 @@ a{
     position: fixed;
     top: 0;
     left: 0;
+    width: 100%;
+}
+
+.topNavBar-inner{
+    padding: 0px 16px;
 }
 
 .topNavBar nav ul{
@@ -65,7 +70,7 @@ a{
 
 .topNavBar nav ul li a {
     font-size: 12px;
-    color: rgba(0, 0, 0, 0.5);
+    color: #F2F2F2;
     text-decoration: none;
     font-weight: bold;
     border-bottom: 3px solid transparent;
@@ -83,4 +88,18 @@ a{
     height: 515px;
     background-image: url(./picture/rs-cover.jpg);
     /* border: 1px solid red; */
+    background-position: center center;
+    background-size: cover;
+}
+
+.banner .mask{
+    height: 515px;
+    background-color: rgba(0,0,0,0.8)
+}
+
+.userCard{
+    border: 1px solid red;
+    max-width: 940px;
+    margin: auto;
+    background-color: #FFFFFF;
 }
