@@ -116,7 +116,6 @@ dt{
 }
 
 .userCard{
-    border: 1px solid red;
     max-width: 940px;
     margin: auto;
     background-color: #FFFFFF;
@@ -165,18 +164,58 @@ dt{
 .userCard dl dt,
 .userCard dl dd{
     float: left;
-    width: 20%;
+    ;
     padding: 5px 0px;
 }
 
 .userCard dl dt{
     font-weight: bold;
+    width: 20%;
 }
 
 .userCard dl dd{
     color: #9DA0A7;
+    width: 25%;
 }
 
 .userCard footer{
-    color: #E6686A;
+    height: 80px;
+    max-width: 940px;
+    background-color: #E6686A;
+    text-align: center;
+
+}
+
+.userCard  footer .zhihu,
+.userCard  footer .weixin,
+.userCard  footer .github,
+.userCard  footer .weibo{
+    width: 20px;
+    height: 20px;
+    margin: 25px 30px;
+    vertical-align: top;
+
+}
+
+.userCard  footer .zhihu{
+    width: 23px;
+    height: 23px;
+}
+
+.userCard  footer .weibo{
+    width: 24px;
+    height: 24px;
+
+}
+
+.userCard footer a{
+    display:inline-block;
+    border-radius: 50%;
+    margin: 6px 13px;
+    vertical-align: middle;
+}
+
+.userCard footer a:hover{
+    background-color: #CF5D5F;
+    margin: 6px 13px;
 }
