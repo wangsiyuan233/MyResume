@@ -19,11 +19,29 @@ a{
     float: right;
 }
 
-.clear::after{
+.clearfix::after{
     content: '';
     display: block;
     clear: both;
 }
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+hr {
+    border: none;
+    height: 0;
+    border-top: 1px solid #DEDEDE;
+}
+
+dd,
+dt{
+    margin: 0;
+    padding: 0;
+}
+
 
 /*  以下是细分  */
 .topNavBar .logo{
@@ -102,4 +120,63 @@ a{
     max-width: 940px;
     margin: auto;
     background-color: #FFFFFF;
+}
+
+.userCard .welcome{
+    background: #E6686A;
+    color: white;
+    width: 70px;
+    height: 29px;
+    display: inline-block;
+    text-align: center;
+    line-height: 29px;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.userCard .welcome .triangle{
+    display: block;
+    border: 10px solid transparent;
+    width: 0px;
+    border-left-color: #E6686A;
+    /* border-left-color: black; */
+    border-top-width: 0px;
+    position: absolute;
+    left: 4px;
+    top: 100%;
+}
+
+.pictureAndText{
+    padding: 50px;
+}
+
+.userCard .picture{
+    margin-right: 65px;
+}
+
+.text .h1{
+    margin-top: 26px;
+}
+
+.pictureAndText .text hr{
+    margin:20px 0px;
+}
+
+.userCard dl dt,
+.userCard dl dd{
+    float: left;
+    width: 20%;
+    padding: 5px 0px;
+}
+
+.userCard dl dt{
+    font-weight: bold;
+}
+
+.userCard dl dd{
+    color: #9DA0A7;
+}
+
+.userCard footer{
+    color: #E6686A;
 }
