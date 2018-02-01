@@ -42,6 +42,10 @@ dt{
     padding: 0;
 }
 
+h1,h2,h3,h4,h5,h6{
+    font-weight: normal;
+}
+
 
 /*  以下是细分  */
 .topNavBar .logo{
@@ -112,13 +116,15 @@ dt{
 
 .banner .mask{
     height: 515px;
-    background-color: rgba(0,0,0,0.8)
+    background-color: rgba(0,0,0,0.7)
 }
+
 
 .userCard{
     max-width: 940px;
     margin: auto;
     background-color: #FFFFFF;
+    box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.5);
 }
 
 .userCard .welcome{
@@ -138,7 +144,6 @@ dt{
     border: 10px solid transparent;
     width: 0px;
     border-left-color: #E6686A;
-    /* border-left-color: black; */
     border-top-width: 0px;
     position: absolute;
     left: 4px;
@@ -164,7 +169,6 @@ dt{
 .userCard dl dt,
 .userCard dl dd{
     float: left;
-    ;
     padding: 5px 0px;
 }
 
@@ -220,40 +224,164 @@ dt{
     margin: 6px 13px;
 }
 
-
-
-/* 下面是太极图 下面是太极图 下面是太极图 下面是太极图 下面是太极图 */
-.yinyang {
-     width: 100px; height: 50px;
-     background: #fff;
-     border-color: #000;
-     border-style: solid;
-     border-width: 2px 2px 50px 2px;
-     border-radius: 100%;
-     position: relative;
-     margin: 200px;
+body main .download{
+    display: inline-block;
+    font-size: 14px;
+    padding: 21px 55px;
+    line-height: 16px;
+    border: 1px solid #CDCFD1;
+    background-color: #EFEFEF;
+    border-radius: 3px;
+    color: #3d4451;
+    font-weight: bold;
+    margin: 32px 0;
+    transition: box-shadow 0.4s;
 }
 
-.yinyang:before {
-     content: "";
-     position: absolute;
-     top: 50%;
-     left: 0;
-     background: #fff;
-     border: 18px solid #000;
-     border-radius: 100%;
-     width: 14px;
-     height: 14px;
+body main .downloadWrapper{
+    text-align:center;
+
 }
 
-.yinyang:after {
-     content: "";
-     position: absolute;
-     top: 50%;
-     left: 50%;
-     background: #000;
-     border: 18px solid #fff;
-     border-radius:100%;
-     width: 14px;
-     height: 14px;
+body main .download:hover{
+    text-align:center;
+    box-shadow: 0px 4px 13px 0px rgba(0, 0, 0, 0.5);
+}
+
+.selfintroduction{
+    max-width: 940px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.skills{
+    max-width: 940px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.skills  h2{
+    text-align: center;
+    color: #3d4451;
+    font-size: 34px;
+    line-height: 1.2;
+    font-weight: 600;
+    margin-top: 60px;
+    margin-bottom: 30px;
+}
+
+.skills ol{
+    background-color: #FFFFFF;
+    box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.5);
+    list-style: none;
+    padding: 42px 50px 10px;
+}
+
+.skills ol li{
+    float: left;
+    width: 48%;
+    box-sizing: border-box;
+}
+
+.skills ol li:nth-child(even){
+    float: right;
+}
+
+.progressbar{
+    /* border: 1px solid #E6686A; */
+    height: 5px;
+    background-color: #FAE1E1;
+    border-radius: 2PX;
+    margin: 4px 0 40px 0;
+}
+
+.progress{
+    height: 100%;
+    width: 80%;
+    background-color: #E6686A;
+}
+
+.skills h3{
+    padding-right: 40px;
+    line-height: 1.1;
+    font-size: 14px
+}
+
+.portfolia{
+    text-align: center;
+}
+
+.portfolia  h2{
+    text-align: center;
+    color: #3d4451;
+    font-size: 34px;
+    line-height: 1.2;
+    font-weight: 600;
+    margin-top: 60px;
+    margin-bottom: 30px;
+
+    max-width: 940px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.portfolia nav ol li{
+    float: left;
+    list-style: none;
+    margin: 0 40px;
+    border: 1px solid green;
+    cursor: pointer;
+}
+
+.portfolia nav ol li:nth-child(1){
+    margin-left: 0;
+}
+
+.portfolia nav ol li:nth-child(3){
+    margin-right: 0;
+}
+
+.portfolia nav ol{
+    display: inline-block;
+    vertical-align: top;
+    border: 1px solid red;
+
+}
+
+.portfolia nav {
+    text-align: center;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.portfolia nav .bar{
+    border: 1px solid black;
+    height: 5px;
+    background-color: #FFFFFF;
+    margin-top: 10px;
+    border-radius: 2px;
+}
+
+.portfolia nav .bar .barinner{
+    height: 100%;
+    background-color: #E6686A;
+    margin-bottom: 100px;
+    transition: all 0.3s;
+
+}
+
+.portfolia nav .bar.state-1 .barinner{
+    margin-left: 0;
+    width: 35px;
+}
+
+.portfolia nav .bar.state-2 .barinner{
+    margin-left: 120px;
+    width: 35px;
+}
+
+.portfolia nav .bar.state-3 .barinner{
+    margin-left: 230px;
+    width: 35px;
 }
