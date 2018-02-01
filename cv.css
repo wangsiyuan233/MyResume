@@ -289,7 +289,6 @@ body main .download:hover{
 }
 
 .progressbar{
-    /* border: 1px solid #E6686A; */
     height: 5px;
     background-color: #FAE1E1;
     border-radius: 2PX;
@@ -346,8 +345,6 @@ body main .download:hover{
 .portfolia nav ol{
     display: inline-block;
     vertical-align: top;
-
-
 }
 
 .portfolia nav {
@@ -358,7 +355,6 @@ body main .download:hover{
 }
 
 .portfolia nav .bar{
-
     height: 5px;
     background-color: #FFFFFF;
     margin-top: 10px;
