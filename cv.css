@@ -48,6 +48,47 @@ h1,h2,h3,h4,h5,h6{
 
 
 /*  以下是细分  */
+
+/* loading开始 */
+/* loading部分实现失败 */
+.sitewelcome{
+  display:none;
+  justify-content: center;
+  align-items:center;
+  background-color:#999;
+  z-index:1;
+  position:fixed;
+  top:0;left:0;
+  width:100%;height:100%;
+}
+.sitewelcome .active{
+  display:flex;
+}
+
+.loading{
+  width:200px;height:200px;
+  position:relative;
+}
+
+.loading::before, .loading::after{
+  content:'';
+  border: 1px solid black;
+  left:0;right:0;bottom:0;top:0;
+  margin:auto;
+  position:absolute;
+  background:black;
+  border-radius:50%;
+  animation: mingzi 1.5s linear infinite;
+}
+.loading::after{
+  animation-delay:0.75s;
+}
+@keyframes mingzi{
+  0%{width:0;height:0;opacity:1}
+  100%{width:100px;height:100px;opacity:0}
+}
+/* loading结束 */
+
 .topNavBar .logo{
     font-size: 24px;
     font-family: "Arial Black";

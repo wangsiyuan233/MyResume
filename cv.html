@@ -6,6 +6,9 @@
   <link rel="stylesheet" href="./cv.css">
 </head>
 <body>
+<div class="sitewelcome active" id="sitewelcome">
+    <div class="loading"></div>
+</div>
 <div class="topNavBar">
     <div class="topNavBar-inner clearfix">
         <a href="#"alt="logo" class="logo left">
@@ -154,5 +157,11 @@
         </div>
     </div>
 </section>
+<script>
+    setTimeout(function(){
+        sitewelcome.classList.remove('active')
+    },1000)
+
+</script>
 </body>
 </html>
