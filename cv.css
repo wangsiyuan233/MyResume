@@ -165,10 +165,19 @@ h1,h2,h3,h4,h5,h6{
     content: '';
     display: block;
     top: 100%;left: 0;
-    height:3px;width: 100%;
+    height:3px; width: 100%;
     background: #E8676B;
+    animation: slidetopNavBar 0.5s;
 
+}
 
+@keyframes slidetopNavBar{
+    0%{
+        width:0%;
+    }
+    100%{
+        width:100%;
+    }
 }
 
 .banner{
