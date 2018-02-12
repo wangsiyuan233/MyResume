@@ -152,10 +152,23 @@ h1,h2,h3,h4,h5,h6{
     display: block;
     padding-top: 10px;
     padding-bottom: 5px;
+    position: relative;
+    /*relative竟然不是加在li元素上的  */
 }
 
-.topNavBar nav ul li a:hover{
+/* .topNavBar nav ul li a:hover{
     border-bottom: 3px solid #E8676B;
+} */
+
+.topNavBar nav ul li a:hover::after{
+    position: absolute;
+    content: '';
+    display: block;
+    top: 100%;left: 0;
+    height:3px;width: 100%;
+    background: #E8676B;
+
+
 }
 
 .banner{
