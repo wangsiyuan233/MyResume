@@ -25,3 +25,18 @@ window.onscroll = function(hhh){
         topNavBar.classList.remove('sticky')
     }
 }
+// 二级菜单
+let aTags =document.getElementsByClassName('menuTrigger')
+for(let i = 0;i < aTags.lenght; i++ ){
+    aTags[i].onmouseenter = function(x){
+        let a = x.currentTarget
+        let brother = a.nextSibling
+        while (brother.nodeType == 3) {
+            brother = brother.nextSibling
+        }
+        console.log(brother)
+    }
+    aTags[i].onmouseleave = function(){
+        console.log('mouseleave')
+    }
+}
