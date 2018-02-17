@@ -179,20 +179,32 @@ h1,h2,h3,h4,h5,h6{
 .topNavBar .submenu{
     display: none;
     position: absolute;
-    left: 0;
+    right: 0;
     /* top百分百是啥意思 */
     top:100%;
+    background: white;
+    color: #3d4451;
 }
 
 .topNavBar .submenu li{
     white-space: nowrap;
-
+    padding: 5px 10px;
 }
 
-.topNavBar .submenu .active{
+.topNavBar li .active .submenu{
     display: block;
+    animation: submenuSlide 0.3s;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
 
+@frameworks submenuSlide{
+    0%{
+        margin-right: 100%;
+    }
+    100%{
+        margin-right: 0%;
+    }
+}
 .banner{
     height: 515px;
     background-image: url(./picture/rs-cover.jpg);

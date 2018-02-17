@@ -26,17 +26,29 @@ window.onscroll = function(hhh){
     }
 }
 // 二级菜单
-let aTags =document.getElementsByClassName('menuTrigger')
-for(let i = 0;i < aTags.lenght; i++ ){
-    aTags[i].onmouseenter = function(x){
-        let a = x.currentTarget
-        let brother = a.nextSibling
-        while (brother.nodeType == 3) {
-            brother = brother.nextSibling
-        }
-        console.log(brother)
+let liTags =document.querySelectorAll('nav.menu > ul > li')
+for(let i = 0;i < liTags.lenght; i++ ){
+    liTags[i].onmouseenter = function(x){
+        let li = x.currentTarget
+        let brother = li.getElementsByTagName('ul')[0]
+        x.currentTarget.classList.add('active')
     }
-    aTags[i].onmouseleave = function(){
-        console.log('mouseleave')
+    liTags[i].onmouseleave = function(x){
+        let li = x.currentTarget
+        let brother = li.getElementsByTagName('ul')[0]
+        x.currentTarget.classList.remove('active')
+    }
+}
+
+//跳转定位
+let aTags = document.querySelectorAll('nav.menu > ul > li > a')
+for(let i = 0;i < aTags.lenght; i++ ){
+    aTags[i].onclick = function(x){
+        x.preventDefault()
+        let a = currentTarget
+        let href = a.getAttribute('href')
+        let element = document.querySelector(href)
+        let top = element.offsetTop
+        window.scrollTo(0, top-80)
     }
 }
