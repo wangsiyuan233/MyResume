@@ -49,6 +49,12 @@ for(let i = 0;i < aTags.lenght; i++ ){
         let href = a.getAttribute('href')
         let element = document.querySelector(href)
         let top = element.offsetTop
-        window.scrollTo(0, top-80)
+
+        let n = 25
+        let duration = 500/n
+
+        setInterval(() => {
+            window.scrollTo(0, top-80)
+        },duration)    
     }
 }
