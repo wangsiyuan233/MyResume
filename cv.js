@@ -52,9 +52,17 @@ for(let i = 0;i < aTags.lenght; i++ ){
 
         let n = 25
         let duration = 500/n
-
-        setInterval(() => {
-            window.scrollTo(0, top-80)
-        },duration)    
+        let currentTop = window.scrollY
+        let targetTop = top - 80
+        let distance = (targetTop - currentTop)/n
+        let i = 0
+        let id = setInterval(() => {
+            if(i === n){
+                window.clearInterval(id)
+                return
+            }
+            i = i + 1
+            window.scrollTo(0, currentTop + distance * i)
+        },duration)
     }
 }
