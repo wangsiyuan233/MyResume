@@ -4,11 +4,8 @@
   <meta charset="UTF-8">
   <title>MyResume</title>
   <link rel="stylesheet" href="./cv.css">
-  <script src="./cv.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/16.3.5/Tween.min.js"></script>
-</head>
 <body>
-<div class="sitewelcome active" id="sitewelcome">
+<div class="sitewelcome active0" id="sitewelcome">
     <div class="loading"></div>
 </div>
 <div class="topNavBar" id="topNavBar">
@@ -51,7 +48,7 @@
     <div class="mask"></div>
 </div>
 <main style="margin-top: -350px;">
-    <div class="userCard clearfix" id="siteAbout">
+    <div class="userCard clearfix" id="siteAbout" data-x>
         <div class="pictureAndText clearfix">
             <div class="picture left">
                 <img src="./picture/avatar.jpg" width="299" height="347" alt="头像">
@@ -97,7 +94,7 @@
     <p class="selfintroduction">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
 </main>
-<section class="skills" id="siteSkills">
+<section data-x class="skills" id="siteSkills">
     <h2>Professional Skills</h2>
     <ol class="clearfix">
         <li>
@@ -138,7 +135,7 @@
         </li>
     </ol>
 </section>
-<section class="portfolia" id="siteWorks">
+<section data-x class="portfolia" id="siteWorks">
     <h2>Portfolia</h2>
     <nav>
         <ol class="clearfix">
@@ -174,5 +171,100 @@
     </div>
 </section>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/17.1.1/Tween.min.js"></script>
+<script>
+// 开屏两个圈儿
+setTimeout(function(){
+    sitewelcome.classList.remove('active0')
+},3000)
+
+// 会动的topBar
+window.onscroll = function(dongqilai){
+    if (window.scrollY > 0){
+        topNavBar.classList.add('sticky')
+    } else{
+        topNavBar.classList.remove('sticky')
+    }
+}
+
+
+// 页面滚动的时候 导航栏仍然高亮
+let specialTags = document.querySelectorAll('[data-x]')
+for(let i =0;i<specialTags.length; i++){
+specialTags[i].classList.add('offset')
+}
+
+findClosest()
+window.onscroll = function(x){
+if(window.scrollY > 0){
+  topNavBar.classList.add('sticky')
+}else{
+  topNavBar.classList.remove('sticky')
+}
+findClosest()
+}
+
+function findClosest(){
+let specialTags = document.querySelectorAll('[data-x]')
+let minIndex = 0
+for(let i =1;i<specialTags.length; i++){
+  if(Math.abs(specialTags[i].offsetTop - window.scrollY) < Math.abs(specialTags[minIndex].offsetTop - window.scrollY)){
+    minIndex = i
+  }
+}
+// minIndex 就是里窗口顶部最近的元素
+specialTags[minIndex].classList.remove('offset')
+let id = specialTags[minIndex].id
+let a = document.querySelector('a[href="#'+ id + '"]')
+let li = a.parentNode
+let brothersAndMe = li.parentNode.children
+for(let i=0; i<brothersAndMe.length; i++){
+  brothersAndMe[i].classList.remove('highlight')
+}
+li.classList.add('highlight')
+}
+let liTags = document.querySelectorAll('nav.menu > ul > li')
+for(let i=0; i<liTags.length; i++){
+liTags[i].onmouseenter = function(x){
+  x.currentTarget.classList.add('active')
+}
+liTags[i].onmouseleave = function(x){
+  x.currentTarget.classList.remove('active')
+}
+}
+
+// 非线性跳出 TWEEN.js
+let aTags = document.querySelectorAll('nav.menu > ul > li > a')
+function animate(time) {
+requestAnimationFrame(animate);
+TWEEN.update(time);
+}
+requestAnimationFrame(animate);
+
+for(let i=0; i<aTags.length; i++){
+aTags[i].onclick = function(x){
+  x.preventDefault()
+  let a = x.currentTarget
+  let href = a.getAttribute('href') //'#siteAbout'
+  let element = document.querySelector(href)
+  let top = element.offsetTop
+
+  let currentTop = window.scrollY
+  let targetTop = top - 80
+  let s = targetTop - currentTop // 路程
+  var coords = { y: currentTop}; // 起始位置
+  var t = Math.abs((s/100)*300) // 时间
+  if(t>500){ t = 500 }
+  var tween = new TWEEN.Tween(coords) // 起始位置
+    .to({ y: targetTop}, t) // 结束位置 和 时间
+    .easing(TWEEN.Easing.Cubic.InOut) // 缓动类型
+    .onUpdate(function() {
+      // coords.y 已经变了
+      window.scrollTo(0,coords.y) // 如何更新界面
+    })
+    .start(); // 开始缓动
+  }
+}
+</script>
 </body>
 </html>

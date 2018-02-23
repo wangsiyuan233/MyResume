@@ -1,5 +1,3 @@
-/**/
-
 
 body{
     margin: 0;
@@ -50,8 +48,8 @@ h1,h2,h3,h4,h5,h6{
 /*  以下是细分  */
 
 /* loading开始 */
-/* loading部分实现失败 */
-.sitewelcome{
+/* loading部分实现失败  BUG */
+#sitewelcome{
   display:none;
   justify-content: center;
   align-items:center;
@@ -61,11 +59,11 @@ h1,h2,h3,h4,h5,h6{
   top:0;left:0;
   width:100%;height:100%;
 }
-.sitewelcome .active{
+.active0{
   display:flex;
 }
 
-.loading{
+.sitewelcome > .loading{
   width:200px;height:200px;
   position:relative;
 }
@@ -89,38 +87,41 @@ h1,h2,h3,h4,h5,h6{
 }
 /* loading结束 */
 
-[data-x].active{
-  outline: 10px solid red;
-}
+
+
+/*  每个模块向上滑动  */
 [data-x].offset{
   transform: translateY(100px);
 }
 [data-x]{
   transform: translateY(0);
-  transition: all 0.5s;
+  transition: all 1s;
 }
 
 @keyframes slideUp{
   0%{transform: translateY(-30px);}
   100%{transform: translateY(0);}
 }
+/* 向上滑动结束  */
+
+
 
 .topNavBar .logo{
     font-size: 24px;
     font-family: "Arial Black";
-
 }
 
-.rs{
+.topNavBar .logo .rs{
     margin-right: 4px;
     color: #E8676B;
 }
 
 .topNavBar .logo .card{
     color: #9A9DA2;
-
 }
 
+
+/* 会变的topBar */
 .topNavBar{
     padding: 20px 16px;
     position: fixed;
@@ -131,11 +132,11 @@ h1,h2,h3,h4,h5,h6{
     color: #F2F2F2;
 }
 
-.topNavBar .sticky{
-    background: red;
+.sticky{
+    background-color: #efefef;
     z-index: 1;
     padding: 10px 0px;
-    box-shadow: 0,0,10px,rgba(0,0,0,0.25);
+    box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.5);
     color:#3d4451;
 }
 
@@ -143,6 +144,8 @@ h1,h2,h3,h4,h5,h6{
 .topNavBar-inner{
     padding: 0px 16px;
 }
+
+.topNavBar nav { padding-top: 5px; }
 
 .topNavBar nav ul{
     list-style: none;
@@ -176,23 +179,24 @@ h1,h2,h3,h4,h5,h6{
     border-bottom: 3px solid #E8676B;
 } */
 
-.topNavBar nav ul li a:hover::after{
-    position: absolute;
-    content: '';
-    display: block;
-    top: 100%;left: 0;
-    height:3px; width: 100%;
-    background: #E8676B;
-    animation: slidetopNavBar 0.5s;
-
+.topNavBar nav > ul > li.active > a::after,
+.topNavBar nav > ul > li.highlight > a::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: #e06567;
+  height: 3px;
+  animation: menuSlide .3s;
+}
+@keyframes menuSlide{
+  0%{ width: 0; }
+  100%{ width: 100%; }
 }
 
-@keyframes slidetopNavBar{
-    0%{width:0%;}
-    100%{width:100%;}
-}
-
-.topNavBar .submenu{
+.submenu{
     display: none;
     position: absolute;
     right: 0;
@@ -202,18 +206,18 @@ h1,h2,h3,h4,h5,h6{
     color: #3d4451;
 }
 
-.topNavBar .submenu li{
+.topNavBar .submenu > li{
     white-space: nowrap;
     padding: 5px 10px;
 }
 
-.topNavBar li .active .submenu{
+.topNavBar li.active> .submenu{
     display: block;
     animation: submenuSlide 0.3s;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
 
-@frameworks submenuSlide{
+@keyframes submenuSlide{
     0%{
         margin-right: 100%;
     }
@@ -221,6 +225,8 @@ h1,h2,h3,h4,h5,h6{
         margin-right: 0%;
     }
 }
+
+/* 遮罩  */
 .banner{
     height: 515px;
     background-image: url(./picture/rs-cover.jpg);
@@ -235,6 +241,7 @@ h1,h2,h3,h4,h5,h6{
 }
 
 
+/* 关于卡片 */
 .userCard{
     max-width: 940px;
     margin: auto;
@@ -271,6 +278,7 @@ h1,h2,h3,h4,h5,h6{
 
 .userCard .picture{
     margin-right: 65px;
+
 }
 
 .text .h1{
@@ -339,6 +347,7 @@ h1,h2,h3,h4,h5,h6{
     margin: 6px 13px;
 }
 
+/* 下载按钮 */
 body main .download{
     display: inline-block;
     font-size: 14px;
@@ -363,6 +372,7 @@ body main .download:hover{
     box-shadow: 0px 4px 13px 0px rgba(0, 0, 0, 0.5);
 }
 
+/* 大段独白  */
 .selfintroduction{
     max-width: 940px;
     margin-left: auto;
@@ -370,6 +380,7 @@ body main .download:hover{
     text-align: center;
 }
 
+/* 技能卡片  */
 .skills{
     max-width: 940px;
     margin-left: auto;
@@ -408,6 +419,7 @@ body main .download:hover{
     background-color: #FAE1E1;
     border-radius: 2PX;
     margin: 4px 0 40px 0;
+    overflow: hidden;
 }
 
 .progress{
@@ -422,9 +434,26 @@ body main .download:hover{
     font-size: 14px
 }
 
+/* 技能bar滑动填充 */
+section.skills .progressbar .progress {
+    height: 100%;
+    background: #E6686A;
+    width: 70%;
+    border-radius: 2px;
+    transform: translateX(0);
+    transition: all 1s;
+}
+
+section.skills.offset .progress{
+  transform: translateX(-100%);
+}
+
+
+
+
+/* 作品集 */
 .portfolia{
     text-align: center;
-
 }
 
 .portfolia  h2{
@@ -440,6 +469,13 @@ body main .download:hover{
     margin-left: auto;
     margin-right: auto;
 }
+
+section.portfolio  nav  ol{
+    margin: 0 auto;
+    display: inline-block;
+    vertical-align: top;
+}
+
 
 .portfolia nav ol li{
     float: left;
@@ -515,6 +551,8 @@ body main .download:hover{
     position: absolute;
 }
 
+
+/* 给作品集展示图遮罩 */
 .works .big{
     width: 607px;
     height: 575px;
