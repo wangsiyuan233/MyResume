@@ -89,6 +89,22 @@ h1,h2,h3,h4,h5,h6{
 }
 /* loading结束 */
 
+[data-x].active{
+  outline: 10px solid red;
+}
+[data-x].offset{
+  transform: translateY(100px);
+}
+[data-x]{
+  transform: translateY(0);
+  transition: all 0.5s;
+}
+
+@keyframes slideUp{
+  0%{transform: translateY(-30px);}
+  100%{transform: translateY(0);}
+}
+
 .topNavBar .logo{
     font-size: 24px;
     font-family: "Arial Black";

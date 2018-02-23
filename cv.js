@@ -1,13 +1,6 @@
 
-    all.onclick = function(){
-        portfoliabar.className = 'bar state-1'
-    }
-    vallina.onclick = function(){
-        portfoliabar.className = 'bar state-2'
-    }
-    frameworks.onclick = function(){
-        portfoliabar.className = 'bar state-3'
-    }
+
+
 
 
 // Loading
@@ -39,7 +32,53 @@ for(let i = 0;i < liTags.lenght; i++ ){
         x.currentTarget.classList.remove('active')
     }
 }
+// 添加 offset 类
+let specialTags = document.querySelectorAll('[data-x]')
+for(let i =0;i<specialTags.length; i++){
+  specialTags[i].classList.add('offset')
+}
 
+findClosest()
+window.onscroll = function(x){
+  if(window.scrollY > 0){
+    topNavBar.classList.add('sticky')
+  }else{
+    topNavBar.classList.remove('sticky')
+  }
+  findClosest()
+}
+
+function findClosest(){
+  let specialTags = document.querySelectorAll('[data-x]')
+  let minIndex = 0
+  for(let i =1;i<specialTags.length; i++){
+    if(Math.abs(specialTags[i].offsetTop - window.scrollY) < Math.abs(specialTags[minIndex].offsetTop - window.scrollY)){
+      minIndex = i
+    }
+  }
+  // minIndex 就是里窗口顶部最近的元素
+  specialTags[minIndex].classList.remove('offset')
+  let id = specialTags[minIndex].id
+  let a = document.querySelector('a[href="#'+ id + '"]')
+  let li = a.parentNode
+  let brothersAndMe = li.parentNode.children
+  for(let i=0; i<brothersAndMe.length; i++){
+    brothersAndMe[i].classList.remove('highlight')
+  }
+  li.classList.add('highlight')
+}
+
+  let liiTags = document.querySelectorAll('nav.menu > ul > li')
+  for(let i=0; i<liiTags.length; i++){
+    liiTags[i].onmouseenter = function(x){
+        x.currentTarget.classList.add('active')
+    }
+    liiTags[i].onmouseleave = function(x){
+        x.currentTarget.classList.remove('active')
+    }
+  }
+
+//
 //跳转定位
 let aTags = document.querySelectorAll('nav.menu > ul > li > a')
 function animate(time) {
@@ -73,3 +112,5 @@ for(let i = 0;i < aTags.lenght; i++ ){
                 .start(); // Start the tween immediately.
     }
 }
+
+//
