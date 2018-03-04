@@ -620,12 +620,53 @@ section.portfolia  nav  ol{
 
 
 
-.message > ol{
-  max-width: 700px;
-  margin: 0 auto;
-  border-top: 1px solid #DDD;
+section.message{
+    max-width: 885px;
+    margin-left: auto;
+    margin-right: auto;
+    border:1px #dcdcdc solid;
+    margin-top:100px;
+    margin-bottom: 100px;
+    background:#ffffff;
+    box-shadow: 0 0 1px rgba(0,0,0,0.3);
 }
-.message > ol > li {
-  padding: 16px;
-  border-bottom: 1px solid #DDD;
+section.message input[type='text']{
+    outline: none;
+    height: 25px;
+    border: 1px #b8b8b8 solid;
+    padding-left:5px;
+    font-size: 16px;
+}
+section.message input[type='submit']{
+    border:none;
+    color:#fffdff;
+    width:100px;
+    height:27px;
+    outline: none;
+    border-radius:3px;
+    background-color:#E6686A;
+    margin-bottom:10px;
+    font-size: 16px;
+    text-align: center;
+    transition: all 0.5s;
+    cursor: pointer;
+}
+section.message > ol{
+    max-width: 700px;
+    margin: 0 auto;
+    border-top: 1px solid #DDD;
+  }
+section.message > ol > li {
+    padding: 16px;
+    border-bottom: 1px solid #ddd;
+}
+form{
+    display:flex;
+    justify-content:space-around;
+}
+
+.message h1{
+    text-align: center;
+    margin-top: 70px;
+    margin-bottom: 30px;
 }
