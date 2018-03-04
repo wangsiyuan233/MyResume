@@ -601,8 +601,9 @@ section.portfolia  nav  ol{
     background-color: rgba(0,0,0,0.3)
 }
 
- .portfolio { text-align: center; margin-bottom: 100px; max-width: 720px;}
- .portfolio h2{ margin-bottom: 32px; }
+ .portfolio { text-align: center; margin-bottom: 100px; max-width: 720px;    margin-left: auto;
+     margin-right: auto;}
+ .portfolio h1{ text-align: center; margin-top: 70px; margin-bottom: 30px; }
  .portfolio .swiper-container { width: 668px; height: 501px; }
  .portfolio .swiper-button-prev,
  .portfolio .swiper-button-next{
