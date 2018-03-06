@@ -1,4 +1,4 @@
-!function{
+!function(){
     var model = {
         init: function(){
             var APP_ID = 'MmCAHWpATYawqMF9T7YhY2VJ-gzGzoHsz';
