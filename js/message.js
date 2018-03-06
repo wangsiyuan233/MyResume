@@ -49,14 +49,8 @@
                     })
                 }
             )
-        },
+        }
 
-        bindEvents: function(){
-          this.form.addEventListener('submit', function(e){
-            e.preventDefault()
-            this.saveMessage()
-          })
-        },
         saveMessage: function(){
           let myForm = this.form
           let content = myForm.querySelector('input[name=content]').value
@@ -71,9 +65,12 @@
           })
         }
 
-      }
-
+        bindEvents: function(){
+          this.form.addEventListener('submit', function(e){
+            e.preventDefault()
+            this.saveMessage()
+          })
+        },
+    }
     controller.init(view, model)
-
-
 }.call()
