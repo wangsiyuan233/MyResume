@@ -13,13 +13,23 @@
         },
         save: function(name, content){
             var Message = AV.Object.extend('Message');
-            var message = new Message();
-            return message.save({  // Promise 对象
-            'name': name,
-            'content': content
-            })
+            var message = new Message(k);
+            var form=document.getElementsByTagName('form');
+            var inputArray=form.getElementsByTagName("input");
+                if(inputArray[i].value==null || inputArray[i].value==''){
+                    for(var i =0; i <inputArray.length; i++){
+                    alert('不能输入空字符串')
+                    k.preventDefault()
+                    }
+                }else{
+                    return message.save({  // Promise 对象
+                    'name': name,
+                    'content': content
+                    })
+                }
         }
     }
+
     var controller = {
         view: null,
         messageList: null,
@@ -71,5 +81,4 @@
         }
     }
     controller.init(view, model)
-
 }.call()
