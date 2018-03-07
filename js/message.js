@@ -38,6 +38,7 @@
             this.model.init()
             this.loadMessages()
             this.bindEvents()
+
         },
 
 
@@ -54,30 +55,34 @@
             )
         },
 
-        bindEvents:function(){
+        bindEvents: function(){
             var that = this
             this.form.addEventListener('submit',function(e){
-
                 e.preventDefault()
-                console.log('this', this)
+
                 that.saveMessage()
-                console.log('this', this)
+
             })
         },
 
-        saveMessage:function(){
+        saveMessage: function(){
             let myForm = this.form
             let content = myForm.querySelector('input[name=content]').value
             let name = myForm.querySelector('input[name=name]').value
             this.model.save(name, content).then(function(object){
-                let li = document.createElement('li')
-                li.innerText = `${object.attributes.name}: ${object.attributes.content}`
-                let messageList = document.querySelector('#messageList')
-                messageList.appendChild(li)
-                myForm.querySelector('input[name=content]').value = ''
-                // window.location.reload()
-                alert('成功存入留言板~')
-                // console.log(object)
+                    if(content==null || content==''|| name==''|| name==null){
+                        alert('两个空位置都要填写哦~')
+                        preventDefault()
+                    }else{
+                        let li = document.createElement('li')
+                        li.innerText = `${object.attributes.name}: ${object.attributes.content}`
+                        let messageList = document.querySelector('#messageList')
+                        messageList.appendChild(li)
+                        myForm.querySelector('input[name=content]').value = ''
+                        alert('成功存入留言板~')
+                        console.log(object)
+                    }
+
             })
         }
 
