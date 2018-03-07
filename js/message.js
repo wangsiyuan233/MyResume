@@ -44,7 +44,7 @@
 
         loadMessages: function(){
             this.model.fetch().then(
-                (message)=> {
+                (messages)=> {
                     let array = messages.map((item)=> item.attributes)
                     array.forEach((item)=>{
                         let li = document.createElement('li')
@@ -53,7 +53,11 @@
                     })
                 }
             )
+
         },
+
+
+
 
         bindEvents: function(){
             var that = this
@@ -79,7 +83,7 @@
                         let messageList = document.querySelector('#messageList')
                         messageList.appendChild(li)
                         myForm.querySelector('input[name=content]').value = ''
-                        alert('成功存入留言板~')
+                        alert('你的留言我看到啦，有空马上回复你哦')
                         console.log(object)
                     }
 
