@@ -1,5 +1,5 @@
 !function(){
-  var view = document.querySelector('#topNavBar')
+  var view = window.View('#topNavBar')
 
   var controller = {
     view: null,
