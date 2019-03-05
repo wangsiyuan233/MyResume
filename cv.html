@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MyResume</title>
+
+  <link rel="stylesheet" href="./cv.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.1.0/css/swiper.min.css">
+
+<body>
+<div class="sitewelcome active0" id="sitewelcome">
+    <div class="loading"></div>
+</div>
+<div class="topNavBar" id="topNavBar">
+    <div class="topNavBar-inner clearfix">
+        <a href="#"alt="logo" class="logo left">
+            <span class="rs">RS</span><span class="card">card</span>
+        </a>
+
+        <nav class="right menu">
+            <ul class="clearfix">
+                <li><a href="#siteAbout">ABOUT</a></li>
+                <li><a href="#siteSkills">SKILLS</a></li>
+                <li>
+                    <a href="#siteWorks">PORTFOLIA</a>
+                    <ul class="submenu">
+                        <li>portfolio1</li>
+                        <li>portfolio2</li>
+                        <li>portfolio3</li>
+                    </ul>
+                </li>
+                <li><a href="#siteExperience">EXPERIENCE</a></li>
+                <li><a href="#">PRICING</a></li>
+                <li>
+                    <a href="#siteBlog">BLOG</a>
+                    <ul class="submenu">
+                        <li>blog1</li>
+                        <li>blog2</li>
+                        <li>blog3</li>
+                    </ul>
+                </li>
+
+                <li><a href="#siteCalendar">CALENDAR</a></li>
+                <li><a href="#siteContact">CONTACT</a></li>
+                <li><a href="#siteOther">OTHER</a></li></li>
+            </ul>
+        </nav>
+    </div>
+</div>
+<div class="banner">
+    <div class="mask"></div>
+</div>
+<main style="margin-top: -350px;">
+    <div class="userCard clearfix" id="siteAbout" data-x>
+        <div class="pictureAndText clearfix">
+            <div class="picture left">
+                <img src="./picture/avatar.png" width="299" height="347" alt="头像">
+            </div>
+            <div class="text clearfix">
+                <div class="profile clearfix"><span class="welcome">哈罗
+                <span class="triangle"></span>
+                </span>
+                <h1>wangsiyuan</h1>
+                <p>前端开发工程师</p>
+                <hr>
+                <dl>
+                    <dt>年龄</dt>
+                    <dd>??</dd>
+                    <dt>地址</dt>
+                    <dd>武汉市</dd>
+                    <dt>邮箱</dt>
+                    <dd>380191957@qq.com</dd>
+                    <dt>邮箱</dt>
+                    <dd>380191957@qq.com</dd>
+                    <dt>邮箱</dt>
+                    <dd>380191957@qq.com</dd>
+                    <dt>邮箱</dt>
+                    <dd>380191957@qq.com</dd>
+
+                </dl>
+                </div>
+
+            </div>
+        </div>
+        <footer>
+            <ul>
+                <a href="#"><img src="./picture/weibo.png" alt="微博" class="weibo"></a>
+                <a href="#"><img src="./picture/zhihu.png" alt="知乎" class="zhihu"></a>
+                <a href="#"><img src="./picture/weixin.png" alt="微信"class="weixin"></a>
+                <a href="#"><img src="./picture/GitHub.png" alt="github" class="github"></a>
+            </ul>
+        </footer>
+    </div>
+    <div class="downloadWrapper">
+        <a href="https://github.com/wangsiyuan233/MyResume/blob/master/picture/zhihu.png" target="_blank" class="download clearfix" download>下载简历</a>
+    </div>
+    <p class="selfintroduction">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+</main>
+<section data-x class="skills" id="siteSkills">
+    <h2>Professional Skills</h2>
+    <ol class="clearfix">
+        <li>
+            <h3>H5 & CSS3</h3>
+            <div class="progressbar" >
+                <div class="progress" style="width:80%;"></div>
+            </div>
+        </li>
+        <li>
+            <h3>Javascript</h3>
+            <div class="progressbar" >
+                <div class="progress" style="width:30%;"></div>
+            </div>
+        </li>
+        <li>
+            <h3>JQuery</h3>
+            <div class="progressbar" >
+                <div class="progress" style="width:10%;"></div>
+            </div>
+        </li>
+        <li>
+            <h3>Vue</h3>
+            <div class="progressbar" >
+                <div class="progress" style="width:10%;"></div>
+            </div>
+        </li>
+        <li>
+            <h3>React</h3>
+            <div class="progressbar" >
+                <div class="progress" style="width:10%;"></div>
+            </div>
+        </li>
+        <li>
+            <h3>Http</h3>
+            <div class="progressbar">
+                <div class="progress" style="width:30%;"></div>
+            </div>
+        </li>
+    </ol>
+</section>
+<section data-x class="portfolia" id="siteWorks">
+    <h2>Portfolia</h2>
+    <nav>
+        <ol class="clearfix">
+            <li id="all">所有</li>
+            <li id="vallina">原生</li>
+            <li id="frameworks">框架</li>
+            <script type="text/javascript">
+            all.onclick = function(){
+                portfoliabar.className = 'bar state-1'
+            }
+            vallina.onclick = function(){
+                portfoliabar.className = 'bar state-2'
+            }
+            frameworks.onclick = function(){
+                portfoliabar.className = 'bar state-3'
+            }
+            </script>
+        </ol>
+        <div class="bar state-1" id="portfoliabar">
+            <div class="barinner"></div>
+        </div>
+    </nav>
+    <div class="works" style="height:577px;">
+        <div class="big" style="top:0; left:0;">
+            <div class="mask"></div>
+        </div>
+        <div id="shang" class="small" style="top:0; left:645px;">
+            <div class="mask"></div>
+        </div>
+        <div id="xia" class="small" style="top:298px; left:645px;">
+            <div class="mask"></div>
+        </div>
+    </div>
+</section>
+
+<section data-x class="portfolio" id="siteWorks">
+<h1>作品集</h1>
+
+<!-- 这就是 view , 用户看得见的东西-->
+<!-- Slider main container -->
+<div id="mySlides">
+  <div class="swiper-container">
+    <!-- Additional required wrapper -->
+    <div class="swiper-wrapper">
+      <!-- Slides -->
+      <img src="./picture/canvas.jpg" class="swiper-slide">
+      <img src="./picture/nav-page.jpg" class="swiper-slide">
+      <img src="./picture/apple-style-slides.jpg" class="swiper-slide">
+    </div>
+    <!-- If we need pagination -->
+    <div class="swiper-pagination"></div>
+
+    <!-- If we need navigation buttons -->
+  </div>
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
+</div>
+</section>
+
+<section class="message">
+    <h1>留言</h1>
+    <ol id="messageList">
+    </ol>
+    <form id="postMessageForm" style="width: 700px; margin: 50px auto;">
+      <label for="">姓名</label>
+      <input type="text" name="name">
+      <label for="">内容</label>
+      <input type="text" name="content">
+      <input type="submit" value="提交">
+    </form>
+</section>
+
+<script>
+// 开屏两个圈儿 失败！！
+setTimeout(function(){
+    sitewelcome.classList.remove('active0')
+},3000)
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/17.1.1/Tween.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.1.0/js/swiper.min.js"></script>
+
+<script src="./js/base/Model.js"></script>
+<script src="./js/base/View.js"></script>
+<script src="./js/base/Controller.js"></script>
+
+
+<script src="./js/av-min.js"></script>
+<script src="./js/init-swiper.js"></script>
+<script src="./js/auto-slide-up.js"></script>
+<script src="./js/sticky-topbar.js"></script>
+<script src="./js/smoothly-navigation.js"></script>
+<script src="./js/message.js"></script>
+
+</body>
+</html>

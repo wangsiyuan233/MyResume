@@ -1,0 +1,669 @@
+
+body{
+    margin: 0;
+    background-color: #EFEFEF;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+.left{
+    float: left;
+}
+
+.right{
+    float: right;
+}
+
+.clearfix::after{
+    content: '';
+    display: block;
+    clear: both;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+hr {
+    border: none;
+    height: 0;
+    border-top: 1px solid #DEDEDE;
+}
+
+dd,
+dt{
+    margin: 0;
+    padding: 0;
+}
+
+h1,,h3,h4,h5,h6{
+    font-weight: normal;
+}
+
+
+/*  以下是细分  */
+
+/* loading开始 */
+/* loading部分实现失败  BUG */
+#sitewelcome{
+  display:none;
+  justify-content: center;
+  align-items:center;
+  background-color:#999;
+  z-index:1;
+  position:fixed;
+  top:0;left:0;
+  width:100%;height:100%;
+}
+.active0{
+  display:flex;
+}
+
+.sitewelcome > .loading{
+  width:200px;height:200px;
+  position:relative;
+}
+
+.loading::before, .loading::after{
+  content:'';
+  border: 1px solid black;
+  left:0;right:0;bottom:0;top:0;
+  margin:auto;
+  position:absolute;
+  background:black;
+  border-radius:50%;
+  animation: mingzi 1.5s linear infinite;
+}
+.loading::after{
+  animation-delay:0.75s;
+}
+@keyframes mingzi{
+  0%{width:0;height:0;opacity:1}
+  100%{width:100px;height:100px;opacity:0}
+}
+/* loading结束 */
+
+
+
+/*  每个模块向上滑动  */
+[data-x].offset{
+  transform: translateY(100px);
+}
+[data-x]{
+  transform: translateY(0);
+  transition: all 1s;
+}
+
+@keyframes slideUp{
+  0%{transform: translateY(-30px);}
+  100%{transform: translateY(0);}
+}
+/* 向上滑动结束  */
+
+
+
+.topNavBar .logo{
+    font-size: 24px;
+    font-family: "Arial Black";
+}
+
+.topNavBar .logo .rs{
+    margin-right: 4px;
+    color: #E8676B;
+}
+
+.topNavBar .logo .card{
+    color: #9A9DA2;
+}
+
+
+/* 会变的topBar */
+.topNavBar{
+    padding: 20px 16px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    transition: all 1s;
+    color: #F2F2F2;
+}
+
+.sticky{
+    background-color: #efefef;
+    z-index: 1;
+    padding: 10px 0px;
+    box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.5);
+    color:#3d4451;
+}
+
+
+.topNavBar-inner{
+    padding: 0px 16px;
+}
+
+.topNavBar nav { padding-top: 5px; }
+
+.topNavBar nav ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.topNavBar nav ul li{
+    float: left;
+    margin-left: 17px;
+    margin-right: 17px;
+    position: relative;
+
+}
+
+.topNavBar nav ul li a {
+    font-size: 12px;
+    color: inherit;
+    text-decoration: none;
+    font-weight: bold;
+    border-bottom: 3px solid transparent;
+    border-top: 3px solid transparent;
+    display: block;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    position: relative;
+    /*relative竟然不是加在li元素上的  */
+}
+
+/* .topNavBar nav ul li a:hover{
+    border-bottom: 3px solid #E8676B;
+} */
+
+.topNavBar nav > ul > li.active > a::after,
+.topNavBar nav > ul > li.highlight > a::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: #e06567;
+  height: 3px;
+  animation: menuSlide .3s;
+}
+@keyframes menuSlide{
+  0%{ width: 0; }
+  100%{ width: 100%; }
+}
+
+.submenu{
+    display: none;
+    position: absolute;
+    right: 0;
+    /* top百分百:距离顶部有一倍自己的高度 */
+    top:100%;
+    background: white;
+    color: #3d4451;
+}
+
+.topNavBar .submenu > li{
+    white-space: nowrap;
+    padding: 5px 10px;
+}
+
+.topNavBar li.active> .submenu{
+    display: block;
+    animation: submenuSlide 0.3s;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes submenuSlide{
+    0%{margin-right: 100%;}
+    100%{margin-right: 0%;}
+}
+
+/* 遮罩  */
+.banner{
+    height: 515px;
+    background-image: url(./picture/rs-cover.jpg);
+    /* border: 1px solid red; */
+    background-position: center center;
+    background-size: cover;
+}
+
+.banner .mask{
+    height: 515px;
+    background-color: rgba(0,0,0,0.7)
+}
+
+
+/* 关于卡片 */
+.userCard{
+    max-width: 940px;
+    margin: auto;
+    background-color: #FFFFFF;
+    box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.5);
+}
+
+.userCard .welcome{
+    background: #E6686A;
+    color: white;
+    width: 70px;
+    height: 29px;
+    display: inline-block;
+    text-align: center;
+    line-height: 29px;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.userCard .welcome .triangle{
+    display: block;
+    border: 10px solid transparent;
+    width: 0px;
+    border-left-color: #E6686A;
+    border-top-width: 0px;
+    position: absolute;
+    left: 4px;
+    top: 100%;
+}
+
+.pictureAndText{
+    padding: 50px;
+}
+
+.userCard .picture{
+    margin-right: 65px;
+
+}
+
+.text .h1{
+    margin-top: 26px;
+}
+
+.pictureAndText .text hr{
+    margin:20px 0px;
+}
+
+.userCard dl dt,
+.userCard dl dd{
+    float: left;
+    padding: 5px 0px;
+}
+
+.userCard dl dt{
+    font-weight: bold;
+    width: 20%;
+}
+
+.userCard dl dd{
+    color: #9DA0A7;
+    width: 25%;
+}
+
+.userCard footer{
+    height: 80px;
+    max-width: 940px;
+    background-color: #E6686A;
+    text-align: center;
+
+}
+
+.userCard  footer .zhihu,
+.userCard  footer .weixin,
+.userCard  footer .github,
+.userCard  footer .weibo{
+    width: 20px;
+    height: 20px;
+    margin: 25px 30px;
+    vertical-align: top;
+
+}
+
+.userCard  footer .zhihu{
+    width: 23px;
+    height: 23px;
+}
+
+.userCard  footer .weibo{
+    width: 24px;
+    height: 24px;
+
+}
+
+.userCard footer a{
+    display:inline-block;
+    border-radius: 50%;
+    margin: 6px 13px;
+    vertical-align: middle;
+}
+
+.userCard footer a:hover{
+    background-color: #CF5D5F;
+    margin: 6px 13px;
+}
+
+/* 下载按钮 */
+body main .download{
+    display: inline-block;
+    font-size: 14px;
+    padding: 21px 55px;
+    line-height: 16px;
+    border: 1px solid #CDCFD1;
+    background-color: #EFEFEF;
+    border-radius: 3px;
+    color: #3d4451;
+    font-weight: bold;
+    margin: 32px 0;
+    transition: box-shadow 0.4s;
+}
+
+body main .downloadWrapper{
+    text-align:center;
+
+}
+
+body main .download:hover{
+    text-align:center;
+    box-shadow: 0px 4px 13px 0px rgba(0, 0, 0, 0.5);
+}
+
+/* 大段独白  */
+.selfintroduction{
+    max-width: 940px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+/* 技能卡片  */
+.skills{
+    max-width: 940px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.skills  {
+    text-align: center;
+    color: #3d4451;
+    font-size: 34px;
+    line-height: 1.2;
+    font-weight: 600;
+    margin-top: 60px;
+    margin-bottom: 30px;
+}
+
+.skills ol{
+    background-color: #FFFFFF;
+    box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.5);
+    list-style: none;
+    padding: 42px 50px 10px;
+}
+
+.skills ol li{
+    float: left;
+    width: 48%;
+    box-sizing: border-box;
+}
+
+.skills ol li:nth-child(even){
+    float: right;
+}
+
+.progressbar{
+    height: 5px;
+    background-color: #FAE1E1;
+    border-radius: 2PX;
+    margin: 4px 0 40px 0;
+    overflow: hidden;
+}
+
+.progress{
+    height: 100%;
+    width: 80%;
+    background-color: #E6686A;
+}
+
+.skills h3{
+    padding-right: 40px;
+    line-height: 1.1;
+    font-size: 14px
+}
+
+/* 技能bar滑动填充 */
+section.skills .progressbar .progress {
+    height: 100%;
+    background: #E6686A;
+    width: 70%;
+    border-radius: 2px;
+    transform: translateX(0);
+    transition: all 1s;
+}
+
+section.skills.offset .progress{
+  transform: translateX(-100%);
+}
+
+
+
+
+/* 作品集 */
+.portfolia{
+    text-align: center;
+}
+
+.portfolia  {
+    text-align: center;
+    color: #3d4451;
+    font-size: 34px;
+    line-height: 1.2;
+    font-weight: 600;
+    margin-top: 60px;
+    margin-bottom: 30px;
+
+    max-width: 940px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+section.portfolia  nav  ol{
+    margin: 0 auto;
+    display: inline-block;
+    vertical-align: top;
+}
+
+
+.portfolia nav ol li{
+    float: left;
+    list-style: none;
+    margin: 0 40px;
+
+    cursor: pointer;
+}
+
+.portfolia nav ol li:nth-child(1){
+    margin-left: 0;
+}
+
+.portfolia nav ol li:nth-child(3){
+    margin-right: 0;
+}
+
+.portfolia nav ol{
+    display: inline-block;
+    vertical-align: top;
+}
+
+.portfolia nav {
+    text-align: center;
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 32px;
+}
+
+.portfolia nav .bar{
+    height: 5px;
+    background-color: #FFFFFF;
+    margin-top: 10px;
+    border-radius: 2px;
+}
+
+.portfolia nav .bar .barinner{
+    height: 100%;
+    background-color: #E6686A;
+    margin-bottom: 100px;
+    transition: all 0.3s;
+
+}
+
+.portfolia nav .bar.state-1 .barinner{
+    margin-left: 0;
+    width: 35px;
+}
+
+.portfolia nav .bar.state-2 .barinner{
+    margin-left: 120px;
+    width: 35px;
+}
+
+.portfolia nav .bar.state-3 .barinner{
+    margin-left: 230px;
+    width: 35px;
+}
+
+.portfolia .works{
+    max-width: 940px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 40px;
+    margin-top: 50px;
+
+    position: relative;
+
+}
+
+.portfolia .works .big,
+.portfolia .works .small{
+    position: absolute;
+}
+
+
+/* 给作品集展示图遮罩 */
+.works .big{
+    width: 607px;
+    height: 575px;
+    background-image: url(./picture/portfolia大.jpg);
+    background-size: cover;
+    background-position: center center;
+    box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.5);
+
+}
+
+.works .big .mask{
+    width: 607px;
+    height: 575px;
+    background-color: rgba(0,0,0,0.3)
+}
+
+.works #shang{
+    width: 294px;
+    height: 282px;
+    background-image: url(./picture/portfolia小上.jpg);
+    background-size: cover;
+    background-position: center center;
+    box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.5);
+
+}
+
+.works  #xia{
+    width: 294px;
+    height: 282px;
+    background-image: url(./picture/portfolia小下.jpg);
+    background-size: cover;
+    background-position: center center;
+    box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.5);
+
+}
+
+.works #shang .mask{
+    width: 294px;
+    height: 282px;
+    background-color: rgba(0,0,0,0.3)
+}
+
+.works #xia .mask{
+    width: 294px;
+    height: 282px;
+    background-color: rgba(0,0,0,0.3)
+}
+
+ .portfolio { text-align: center; margin-bottom: 100px; max-width: 720px;    margin-left: auto;
+     margin-right: auto;}
+ .portfolio h1{ text-align: center; margin-top: 70px; margin-bottom: 30px; }
+ .portfolio .swiper-container { width: 668px; height: 501px; }
+ .portfolio .swiper-button-prev,
+ .portfolio .swiper-button-next{
+  background-color: white;
+  width: 64px;
+  height: 64px;
+  right: 100%;
+  left: auto;
+  border-radius: 50%;
+  }
+.portfolio .swiper-button-next{ left: 100%;right: auto; }
+
+
+
+
+
+
+section.message{
+    max-width: 885px;
+    margin-left: auto;
+    margin-right: auto;
+    border:1px #dcdcdc solid;
+    margin-top:100px;
+    margin-bottom: 100px;
+    background:#ffffff;
+    box-shadow: 0 0 1px rgba(0,0,0,0.3);
+}
+section.message input[type='text']{
+    outline: none;
+    height: 25px;
+    border: 1px #b8b8b8 solid;
+    padding-left:5px;
+    font-size: 16px;
+}
+section.message input[type='submit']{
+    border:none;
+    color:#fffdff;
+    width:100px;
+    height:27px;
+    outline: none;
+    border-radius:3px;
+    background-color:#E6686A;
+    margin-bottom:10px;
+    font-size: 16px;
+    text-align: center;
+    transition: all 0.5s;
+    cursor: pointer;
+}
+section.message > ol{
+    max-width: 700px;
+    margin: 0 auto;
+    border-top: 1px solid #DDD;
+  }
+section.message > ol > li {
+    padding: 16px;
+    border-bottom: 1px solid #ddd;
+}
+form{
+    display:flex;
+    justify-content:space-around;
+}
+
+.message h1{
+    text-align: center;
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
