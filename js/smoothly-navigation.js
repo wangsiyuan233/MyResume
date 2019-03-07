@@ -8,6 +8,7 @@
       this.initAnimation()
       this.bindEvents()
     },
+    // 非匀速滚动到指定位置
     initAnimation: function(){
       function animate(time) {
         requestAnimationFrame(animate);

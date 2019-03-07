@@ -7,6 +7,7 @@
 
 ## 目标特效 ##
 
+
 [√] 滚动页面时 topNavBar 呈现高亮状态
 
 ```
@@ -41,12 +42,10 @@
   100%{ width: 100%; }
 }
 ```
+
 [√] hover 时 topNavBar 从左往右划出二级菜单
-
-直接在 li 上面添加 active
-
 ```
-// JS 部分： 添加 class
+// JS 部分： 直接在 li 上面添加 active
 
  active: function(){
       this.view.classList.add('sticky')
@@ -91,8 +90,8 @@
     100%{margin-right: 0%;}
 }
 ```
-[√] 点击 topNavBar 到达指定位置
 
+[√] 点击 topNavBar 到达指定位置
 ```
 // JS 部分
 
