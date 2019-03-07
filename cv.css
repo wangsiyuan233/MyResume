@@ -40,7 +40,7 @@ dt{
     padding: 0;
 }
 
-h1,,h3,h4,h5,h6{
+h1,h3,h4,h5,h6{
     font-weight: normal;
 }
 
@@ -138,6 +138,7 @@ h1,,h3,h4,h5,h6{
     padding: 10px 0px;
     box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.5);
     color:#3d4451;
+    cursor: pointer;
 }
 
 
@@ -190,6 +191,8 @@ h1,,h3,h4,h5,h6{
   background: #e06567;
   height: 3px;
   animation: menuSlide .3s;
+    cursor: pointer;
+
 }
 @keyframes menuSlide{
   0%{ width: 0; }
@@ -204,11 +207,13 @@ h1,,h3,h4,h5,h6{
     top:100%;
     background: white;
     color: #3d4451;
+
 }
 
 .topNavBar .submenu > li{
     white-space: nowrap;
     padding: 5px 10px;
+    cursor: pointer;
 }
 
 .topNavBar li.active> .submenu{

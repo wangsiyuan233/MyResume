@@ -36,9 +36,13 @@
       let aTags = this.view.querySelectorAll('nav.menu > ul > li > a')
       for(let i=0; i<aTags.length; i++){
         aTags[i].onclick = (x)=>{
+          // 阻止默认动作
           x.preventDefault()
           let a = x.currentTarget
+          // a.href 是带 http 协议的,被浏览器处理过的
+          // a.getAttribute('href')  是
           let href = a.getAttribute('href') //'#siteAbout'
+          // 以字符串为选择器获取元素
           let element = document.querySelector(href)
           this.scrollToElement(element)
         }
