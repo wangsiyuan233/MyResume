@@ -3,10 +3,7 @@
 [【代码链接】](https://github.com/wangsiyuan233/react-todolist)
 [【预览链接】](http://wangsiyuan233.cn/MyResume/cv.html)
 
-----------
-
 ## 目标特效 ##
-
 
 [√] 滚动页面时 topNavBar 呈现高亮状态
 
@@ -113,9 +110,171 @@ function(){
     }
 ```
 
-- [X] 下载简历： 关联自己的 pdf 简历
-- [√] Professional Skills：会动的技能条
-- [√] Portfolia ： 进度条会按照点击的文字而移动
-- [√] 作品集： 轮播 
-- [√] 留言板： 七牛云储存数据
+[√] 点击 topNavBar 非匀速到达指定位置: 使用 Tween.js
+```
+// JS 部分
 
+ // 非匀速滚动到指定位置
+    initAnimation: function(){
+      function animate(time) {
+        requestAnimationFrame(animate);
+        TWEEN.update(time);
+      }
+      requestAnimationFrame(animate);
+    },
+    scrollToElement: function(element){
+      let top = element.offsetTop
+      let currentTop = window.scrollY
+      let targetTop = top - 80
+      let s = targetTop - currentTop // 路程
+      var coords = { y: currentTop}; // 起始位置
+      var t = Math.abs((s/100)*300) // 时间
+      if(t>500){ t = 500 }
+      var tween = new TWEEN.Tween(coords) // 起始位置
+        .to({ y: targetTop}, t) // 结束位置 和 时间
+        .easing(TWEEN.Easing.Cubic.InOut) // 缓动类型
+        .onUpdate(function() {
+          // coords.y 已经变了
+          window.scrollTo(0,coords.y) // 如何更新界面
+        })
+        .start(); // 开始缓动
+    }
+```
+
+[√] 页面滚动时，topNavBar 会依次点亮
+```
+// JS 部分
+
+ function findClosestAndRemoveOffset(){
+    let specialTags = document.querySelectorAll('[data-x]')
+    let minIndex = 0
+    for(let i =1;i<specialTags.length; i++){
+      if(Math.abs(specialTags[i].offsetTop - window.scrollY) < Math.abs(specialTags[minIndex].offsetTop - window.scrollY)){
+        minIndex = i
+      }
+    }
+    // minIndex 就是里窗口顶部最近的元素
+    specialTags[minIndex].classList.remove('offset')
+    let id = specialTags[minIndex].id
+    let a = document.querySelector('a[href="#'+ id + '"]')
+    let li = a.parentNode
+    let brothersAndMe = li.parentNode.children
+    for(let i=0; i<brothersAndMe.length; i++){
+      brothersAndMe[i].classList.remove('highlight')
+    }
+    li.classList.add('highlight')
+  }
+  let liTags = document.querySelectorAll('nav.menu > ul > li')
+  for(let i=0; i<liTags.length; i++){
+    liTags[i].onmouseenter = function(x){
+      x.currentTarget.classList.add('active')
+    }
+    liTags[i].onmouseleave = function(x){
+      x.currentTarget.classList.remove('active')
+    }
+  }
+```
+```
+// CSS 部分
+
+[data-x]{
+  transform: translateY(0);
+  transition: all 1s;
+}
+
+.topNavBar nav > ul > li.active > a::after,
+.topNavBar nav > ul > li.highlight > a::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: #e06567;
+  height: 3px;
+  animation: menuSlide .3s;
+  cursor: pointer;
+}
+```
+
+[√] 每个 section 出现的方式是：从上往下
+```
+// JS部分
+
+  // 添加 offset 类
+  var specialTags = document.querySelectorAll('[data-x]')
+  for(let i =0;i<specialTags.length; i++){
+    specialTags[i].classList.add('offset')
+  }
+  findClosestAndRemoveOffset()
+  window.addEventListener('scroll', function(x){
+    findClosestAndRemoveOffset()
+  })
+```
+```
+// CSS 部分
+
+[data-x].offset{
+  transform: translateY(100px);
+}
+[data-x]{
+  transform: translateY(0);
+  transition: all 1s;
+}
+
+@keyframes slideUp{
+  0%{transform: translateY(-30px);}
+  100%{transform: translateY(0);}
+}
+```
+
+[√] progressbar 填充效果
+```
+// CSS 部分
+
+.progressbar{
+    height: 5px;
+    background-color: #FAE1E1;
+    border-radius: 2PX;
+    margin: 4px 0 40px 0;
+    overflow: hidden;
+}
+
+.progress{
+    height: 100%;
+    width: 80%;
+    background-color: #E6686A;
+}
+
+.skills h3{
+    padding-right: 40px;
+    line-height: 1.1;
+    font-size: 14px
+}
+
+/* 技能bar滑动填充 */
+section.skills .progressbar .progress {
+    height: 100%;
+    background: #E6686A;
+    width: 70%;
+    border-radius: 2px;
+    transform: translateX(0);
+    transition: all 1s;
+}
+
+section.skills.offset .progress{
+  transform: translateX(-100%);
+}
+```
+```
+// HTML
+
+<div class="progressbar" >
+   <div class="progress" style="width:80%;"></div>
+</div>
+```
+
+[√] 轮播图：使用 swiper 插件
+```
+
+```	

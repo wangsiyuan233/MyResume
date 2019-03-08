@@ -10,7 +10,7 @@
   })
 
 
-  /* helper */
+  /* 页面滚动时，topNavBar 会依次点亮 */
   function findClosestAndRemoveOffset(){
     let specialTags = document.querySelectorAll('[data-x]')
     let minIndex = 0
